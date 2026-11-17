@@ -43,8 +43,6 @@ enum : opcode_t {
  OP_PRINT,
  OP_LAST,
 };
-
-typedef int32_t (*instr_fn_t)(vm_t*, int64_t*);
  
 typedef struct {
   opcode_t opcode;
