@@ -21,7 +21,7 @@ target_sources(
 target_include_directories(
   vm
   PRIVATE
-  "src/"
+  "include/"
 )
 
 target_link_libraries(
