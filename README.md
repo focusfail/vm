@@ -1,10 +1,15 @@
 # vm
 
-small bytecode vm
+stack machine vm
 
 ## instructions
-**memory:** `PUSH`, `POP`
-**arith:** `ADD`, `SUB`, `MUL`, `DIV`, `MOD`
-**comp:** `EQ`, `LT`, `GT`
-**ctrl:** `JMP`, `JZ`, `CALL`, `RET`
-**io:** `PRINT`
+**memory:**
+- `PUSH`, `POP`
+**arithmetic:**
+- `ADD`, `SUB`, `MUL`, `DIV`, `MOD`
+**compare:**
+-  `EQ`, `LT`, `GT`
+**control:**
+- `JMP`, `JZ`, `CALL`, `RET`
+**i/o:**
+- `PRINT`
