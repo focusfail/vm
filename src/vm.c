@@ -160,7 +160,21 @@ bool execute(vm_t* vm, const instr_t* instr, const int64_t* operand) {
       pop(vm, &v);
       printf("%li\n", v);
     } break;
-    default:
+    case (OP_CALL): {
+      if (vm->cp >= CALLS_MAX) {
+        fprintf(stderr, "call stack overflow\n");
+        return false;
+      }
+      vm->calls[vm->cp++] = vm->pc;
+      vm->pc = *operand;
+    } break;
+    case (OP_RET): {
+      if (vm->cp == 0) {
+        fprintf(stderr, "call stack underflow\n");
+        return false;
+      }
+      vm->pc = vm->calls[--vm->cp];
+    } break;
   }
 
   return true;
@@ -170,6 +184,7 @@ vm_t* vm_with_rom(vm_rom_t rom) {
   vm_t* vm = malloc(sizeof(*vm));
   vm->pc = 0;
   vm->sp = 0;
+  vm->cp = 0;
   vm->rom = rom.rom;
   vm->rom_len = rom.len;
   vm->verbose = false;

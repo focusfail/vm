@@ -6,10 +6,13 @@
 #include "instr.h"
 
 constexpr size_t STACK_MAX = 1024;
+constexpr size_t CALLS_MAX = 256;
 
 typedef struct {
   size_t sp;
   int64_t stack[STACK_MAX];
+  size_t cp;
+  int64_t calls[CALLS_MAX];
 
   size_t pc;
   uint8_t* rom;
