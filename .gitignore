@@ -1,3 +1,5 @@
 build/
 .jj/
 
+*.bin
+test.code
